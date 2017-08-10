@@ -18,7 +18,7 @@
   "settings":{
       "import/resolver": {
         "webpack": {
-          "config": "./webpack/webpack.config.dev.js"
+          "config": "./config/webpack.config.dev.js"
         }
       },
       "ecmascript":6,
@@ -34,6 +34,7 @@
     "react/no-array-index-key": 0,
     "react/require-extension": "off",
     "jsx-a11y/label-has-for": 0,
+    "jsx-a11y/href-no-hash": 0,
     "jsx-quotes": [1, "prefer-single"],
 
     "arrow-parens": 0,
