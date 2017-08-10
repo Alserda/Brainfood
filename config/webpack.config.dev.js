@@ -37,17 +37,11 @@ module.exports = {
         },
       },
       {
-        test: /\.less$/,
+        test: /\.styl$/,
         use: [
           'style-loader',
           'css-loader',
-          {
-            loader: 'less-loader',
-            options: {
-              outputStyle: 'expanded',
-              sourceMap: true,
-            },
-          },
+          'stylus-loader',
         ],
       },
       {
