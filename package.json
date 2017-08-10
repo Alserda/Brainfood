@@ -1,0 +1,16 @@
+{
+  "name": "brainfood-frontent",
+  "version": "1.0.0",
+  "description": "Experimental react frontend",
+  "main": "index.js",
+  "dependencies": {
+    "react": "^16.0.0-beta.5",
+    "react-dom": "^16.0.0-beta.5"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Peter Alserda",
+  "license": "ISC"
+}
