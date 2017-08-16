@@ -18,7 +18,7 @@
   "settings":{
       "import/resolver": {
         "webpack": {
-          "config": "./config/webpack.config.dev.js"
+          "config": "./webpack/webpack.config.dev.js"
         }
       },
       "ecmascript":6,
@@ -39,6 +39,7 @@
 
     "arrow-parens": 0,
     "import/prefer-default-export": 0,
+    "import/no-extraneous-dependencies" : 0,
     "semi": ["error", "always"],
     "comma-dangle": [0, "never"],
     "no-underscore-dangle": ["error", { "allow": ["_id"] }]

@@ -1,5 +1,21 @@
-import React from 'react';
+import React, { Component } from 'react';
 
-const Home = () => <div>Home</div>;
+export default class Home extends Component {
+  state = {
+    ja: true,
+  };
 
-export default Home;
+  render() {
+    console.log('Home: ', this);
+    return (
+      <button onClick={() => this.setState({ ja: !this.state.ja })}>{this.state.ja ? 'Ja' : 'Nee'}</button>
+    );
+  }
+}
+
+// const Home = () => ([
+//   <div>Home</div>,
+//   <span>pindakaas</span>
+// ]);
+
+// export default Home;

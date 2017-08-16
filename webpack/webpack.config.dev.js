@@ -15,7 +15,7 @@ module.exports = {
   entry: [
     'webpack-hot-middleware/client',
     'webpack/hot/dev-server',
-    path.join(paths.src, 'app.js'),
+    path.join(paths.src, 'App.js'),
   ],
   output: {
     path: paths.build,
