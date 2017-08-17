@@ -8,13 +8,7 @@ export const actions = {
   fetch: () => ({ type: types.GET_POSTS_REQUEST })
 };
 
-function fetchPostsHandler(state, action) {
-  console.log('fetchPostsHandler ', state, action);
-  const newState = state.push('henk');
-  console.log('new state:' , newState);
-  return newState;
-
-}
+const fetchPostsHandler = state => state.concat('henk');
 
 const handlers = {
   [types.GET_POSTS_REQUEST]: fetchPostsHandler

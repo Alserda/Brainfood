@@ -19,7 +19,11 @@ class Posts extends Component {
   }
 
   render() {
-    return <div>posts</div>;
+    return (
+      <ul>
+        {this.props.posts.map((post, i) => <li key={`${post}-${i}`}>{post}</li>)}
+      </ul>
+    );
   }
 }
 
