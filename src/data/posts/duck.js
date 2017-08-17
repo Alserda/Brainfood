@@ -10,10 +10,14 @@ export const actions = {
 
 function fetchPostsHandler(state, action) {
   console.log('fetchPostsHandler ', state, action);
+  const newState = state.push('henk');
+  console.log('new state:' , newState);
+  return newState;
+
 }
 
 const handlers = {
   [types.GET_POSTS_REQUEST]: fetchPostsHandler
 };
 
-export default createReducer([], handlers);
+export default createReducer(['hihi'], handlers);

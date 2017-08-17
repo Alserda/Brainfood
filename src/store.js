@@ -9,9 +9,22 @@ const enhancer = applyMiddleware(
   logger,
 );
 
-const store = createStore(
-  reducer,
-  enhancer
-);
 
-export default store;
+export default function configureStore(initialState) {
+  const store = createStore(reducer, initialState, enhancer);
+
+  if (module.hot) {
+    module.hot.accept('./data/reducer', () => {
+      const nextRootReducer = require('./data/reducer'); // eslint-disable-line global-require
+      store.replaceReducer(nextRootReducer);
+    });
+  }
+
+  return store;
+}
+// const store = createStore(
+//   reducer,
+//   enhancer
+// );
+
+// export default store;
