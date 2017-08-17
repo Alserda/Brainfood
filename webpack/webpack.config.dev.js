@@ -13,6 +13,7 @@ module.exports = {
   context: paths.root,
   devtool: 'cheap-eval-source-map',
   entry: [
+    'babel-polyfill',
     'webpack-hot-middleware/client',
     'webpack/hot/dev-server',
     path.join(paths.src, 'App.js'),

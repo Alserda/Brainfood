@@ -1,17 +1,25 @@
 import { createStore, applyMiddleware } from 'redux';
 import thunk from 'redux-thunk';
 import logger from 'redux-logger';
+import createSagaMiddleware from 'redux-saga';
 
 import reducer from 'data/reducer';
-
-const enhancer = applyMiddleware(
-  thunk,
-  logger,
-);
-
+import sagas from 'data/sagas';
 
 export default function configureStore(initialState) {
-  const store = createStore(reducer, initialState, enhancer);
+  const sagaMiddleware = createSagaMiddleware();
+
+  const enhancer = applyMiddleware(
+    thunk,
+    logger,
+    sagaMiddleware,
+  );
+
+  const store = createStore(
+    reducer,
+    initialState,
+    enhancer
+  );
 
   if (module.hot) {
     module.hot.accept('./data/reducer', () => {
@@ -19,6 +27,8 @@ export default function configureStore(initialState) {
       store.replaceReducer(nextRootReducer.default);
     });
   }
+
+  sagaMiddleware.run(sagas);
 
   return store;
 }
