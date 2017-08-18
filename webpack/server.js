@@ -18,6 +18,7 @@ app.use(webpackMiddleware(compiler, {
   stats: {
     colors: true,
   },
+  historyApiFallback: true,
 }));
 
 app.use(webpackHotMiddleware(compiler));
