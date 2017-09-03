@@ -10,10 +10,15 @@ export const actions = {
   fetch: () => ({ type: types.GET_POSTS_REQUEST })
 };
 
-const fetchPostsHandler = state => state.concat('henk');
+const getPostsSuccessHandler = (state, action) => {
 
-const handlers = {
-  [types.GET_POSTS_REQUEST]: fetchPostsHandler
+  console.log('state:' , state);
+  console.log('action:' , action);
+  return state.merge(action.posts);
 };
 
-export default createReducer(['hihi'], handlers);
+const handlers = {
+  [types.GET_POSTS_SUCCESS]: getPostsSuccessHandler
+};
+
+export default createReducer(new Map(), handlers);

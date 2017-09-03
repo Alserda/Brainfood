@@ -1,7 +1,8 @@
 import axios from 'axios';
 
 const settings = {
-  baseURL: 'https://jsonplaceholder.typicode.com',
+  // baseURL: 'https://jsonplaceholder.typicode.com',
+  baseURL: 'http://localhost:3001',
 };
 
 const config = {

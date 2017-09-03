@@ -13,8 +13,8 @@ const Router = () => (
       </ul>
       <hr />
       <Switch>
-        <Route exact path='/' component={Home} />
-        <Route path='/posts' component={Posts} />
+        <Route exact path='/' component={Posts} />
+        <Route path='/posts' component={Home} />
       </Switch>
     </div>
   </BrowserRouter>
