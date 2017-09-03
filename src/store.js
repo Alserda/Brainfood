@@ -21,6 +21,8 @@ export default function configureStore(initialState) {
     enhancer
   );
 
+  console.log('store created')
+
   if (module.hot) {
     module.hot.accept('./data/reducer', () => {
       const nextRootReducer = require('./data/reducer'); // eslint-disable-line global-require

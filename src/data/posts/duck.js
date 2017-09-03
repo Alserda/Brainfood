@@ -11,14 +11,14 @@ export const actions = {
 };
 
 const getPostsSuccessHandler = (state, action) => {
-
-  console.log('state:' , state);
-  console.log('action:' , action);
-  return state.merge(action.posts);
+  const nextState = { ...state, ...action.posts };
+  // console.log('state:' , state);
+  // console.log('action:' , action);
+  return nextState;
 };
 
 const handlers = {
   [types.GET_POSTS_SUCCESS]: getPostsSuccessHandler
 };
 
-export default createReducer(new Map(), handlers);
+export default createReducer({}, handlers);
