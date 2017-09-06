@@ -1,7 +1,12 @@
 import { createReducer } from 'redux-create-reducer';
 import { Map, Record } from 'immutable';
+
+import { pipe } from 'utils/redux';
+import { Status } from 'data/models';
+
 import { Post } from './models';
-import { Status } from '../models';
+import * as mutate from './mutators';
+
 
 const initialState = new Record({
   status: new Status(),
@@ -21,10 +26,9 @@ export const actions = {
   fetchOne: (id) => ({ type: types.FETCH_ONE, id }),
 };
 
-
 /* Action handlers */
 const fetchPostsSuccessHandler = (state, action) => (
-  state.update('collection', c => c.merge(action.posts))
+  pipe([mutate.setPosts(action.posts)], state)
 );
 
 const handlers = {

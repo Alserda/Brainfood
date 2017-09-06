@@ -13,9 +13,9 @@ class Posts extends Component {
     this.props.actions.fetch();
   }
 
-  componentWillReceiveProps(nextProps) {
-    console.log('next props: ', nextProps);
-  }
+  // componentWillReceiveProps(nextProps) {
+  //   console.log('next props: ', nextProps);
+  // }
 
   render() {
     console.log('Posts props: ', this.props);
