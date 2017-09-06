@@ -10,9 +10,9 @@ import { actions as postsActions } from 'data/posts/duck';
 
 class Posts extends Component {
   componentWillMount() {
-    if (!this.props.posts) {
+    // if (!this.props.posts) {
       this.props.actions.fetch();
-    }
+    // }
   }
 
   componentWillReceiveProps(nextProps) {
@@ -25,8 +25,6 @@ class Posts extends Component {
         <li key={key}>{value.get('title')}</li>
       )
     );
-
-    console.log('posts in index:' , posts);
 
     return (
       <ul>
