@@ -9,10 +9,7 @@ export function* fetchPosts() {
     const { data } = yield call(fetch);
 
     // Transform the posts to Immutable objects
-    // const posts = data.reduce((map, current) => (
-    //   map.merge({ [current.id]: new Post(current) })
-    // ), new Map());
-
+    // https://tech.affirm.com/redux-patterns-and-anti-patterns-7d80ef3d53bc
     const posts = new Map().withMutations(map => (
       data.forEach(post => map.set(post.id, new Post(post)))
     ));

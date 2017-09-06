@@ -10,21 +10,27 @@ import { actions as postsActions } from 'data/posts/duck';
 
 class Posts extends Component {
   componentWillMount() {
-    console.log('props;/ ', this.props);
-    this.props.actions.fetch()
+    if (!this.props.posts) {
+      this.props.actions.fetch();
+    }
   }
 
   componentWillReceiveProps(nextProps) {
     console.log('next props: ', nextProps);
-    if (nextProps.posts) {
-      console.log('first post:' , nextProps.posts.get(1))
-    }
   }
 
   render() {
+    const posts = this.props.posts.entrySeq().map(
+      ([key, value]) => (
+        <li key={key}>{value.get('title')}</li>
+      )
+    );
+
+    console.log('posts in index:' , posts);
+
     return (
       <ul>
-        {/* this.props.posts.map((post, i) => <li key={`${post}-${i}`}>{post}</li>) */}
+        {posts}
       </ul>
     );
   }
