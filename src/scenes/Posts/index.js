@@ -10,9 +10,7 @@ import { actions as postsActions } from 'data/posts/duck';
 
 class Posts extends Component {
   componentWillMount() {
-    // if (!this.props.posts) {
-      this.props.actions.fetch();
-    // }
+    this.props.actions.fetch();
   }
 
   componentWillReceiveProps(nextProps) {
@@ -20,7 +18,8 @@ class Posts extends Component {
   }
 
   render() {
-    const posts = this.props.posts.entrySeq().map(
+    console.log('Posts props: ', this.props);
+    const posts = this.props.posts.get('collection').entrySeq().map(
       ([key, value]) => (
         <li key={key}>{value.get('title')}</li>
       )
@@ -36,7 +35,7 @@ class Posts extends Component {
 
 const mapDispatchToProps = dispatch => ({
   actions: bindActionCreators(postsActions, dispatch),
-})
+});
 
 export default connect(state => ({
   posts: state.get('posts')
