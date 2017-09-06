@@ -3,10 +3,11 @@ import thunk from 'redux-thunk';
 import logger from 'redux-logger';
 import createSagaMiddleware from 'redux-saga';
 
+import Immutable from 'immutable';
 import reducer from 'data/reducer';
 import sagas from 'data/sagas';
 
-export default function configureStore(initialState) {
+export default function configureStore() {
   const sagaMiddleware = createSagaMiddleware();
 
   const enhancer = applyMiddleware(
@@ -17,11 +18,9 @@ export default function configureStore(initialState) {
 
   const store = createStore(
     reducer,
-    initialState,
+    Immutable.Map(),
     enhancer
   );
-
-  console.log('store created')
 
   if (module.hot) {
     module.hot.accept('./data/reducer', () => {

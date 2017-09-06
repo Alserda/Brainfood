@@ -6,7 +6,6 @@ export default class Home extends Component {
   };
 
   render() {
-    console.log('Home: ', this);
     return (
       <button onClick={() => this.setState({ ja: !this.state.ja })}>{this.state.ja ? 'Ja' : 'Nee'}</button>
     );

@@ -1,4 +1,5 @@
 import { call, put } from 'redux-saga/effects';
+import { Map } from 'immutable';
 import { fetch } from './api';
 import { types } from './duck';
 import { Post } from './models';
@@ -7,14 +8,10 @@ export function* fetchPosts() {
   try {
     const { data } = yield call(fetch);
 
-    const posts = data.reduce((prev, current) => {
-      prev[current.id] = new Post(current);
-
-      return prev;
-    }, {});
-    // Transform the posts
-    // const posts = new Map();
-    // data.forEach(post => posts.set(post.id, new Post(post)));
+    // Transform the posts to Immutable objects
+    const posts = data.reduce((map, current) => (
+      map.merge({ [current.id]: new Post(current) })
+    ), new Map());
 
     yield put({ type: types.GET_POSTS_SUCCESS, posts });
   } catch (err) {

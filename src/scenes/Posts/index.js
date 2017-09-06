@@ -16,6 +16,9 @@ class Posts extends Component {
 
   componentWillReceiveProps(nextProps) {
     console.log('next props: ', nextProps);
+    if (nextProps.posts) {
+      console.log('first post:' , nextProps.posts.get('1'))
+    }
   }
 
   render() {
@@ -31,4 +34,6 @@ const mapDispatchToProps = dispatch => ({
   actions: bindActionCreators(postsActions, dispatch),
 })
 
-export default connect(state => state, mapDispatchToProps)(Posts);
+export default connect(state => ({
+  posts: state.get('posts')
+}), mapDispatchToProps)(Posts);

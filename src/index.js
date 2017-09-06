@@ -22,6 +22,8 @@ const render = Component => {
 
 render(RootApp);
 
-module.hot.accept('./RootApp', () => {
-  render(RootApp);
-});
+if (module.hot) {
+  module.hot.accept('./RootApp', () => {
+    render(RootApp);
+  });
+}
