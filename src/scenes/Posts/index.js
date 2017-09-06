@@ -17,7 +17,7 @@ class Posts extends Component {
   componentWillReceiveProps(nextProps) {
     console.log('next props: ', nextProps);
     if (nextProps.posts) {
-      console.log('first post:' , nextProps.posts.get('1'))
+      console.log('first post:' , nextProps.posts.get(1))
     }
   }
 
