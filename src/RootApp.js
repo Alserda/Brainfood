@@ -14,7 +14,7 @@ const Router = () => (
       <hr />
       <Switch>
         <Route exact path='/' component={Home} />
-        <Route path='/posts' component={PostsIndex} />
+        <Route exact path='/posts' component={PostsIndex} />
       </Switch>
     </div>
   </BrowserRouter>
