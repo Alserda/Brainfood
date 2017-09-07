@@ -1,16 +1,25 @@
 import pipe from 'utils/redux/pipe';
-import { types } from '../constants';
 
-const unset = val => (state, key) => (
-  state.setIn(['status', key], val)
-);
+const setFetchingMap = v => s => s.setIn(['status', 'fetching'], v);
+const setSuccessMap = v => s => s.setIn(['status', 'success'], v);
+const setFailedMap = v => s => s.setIn(['status', 'failed'], v);
+const setMessageMap = v => s => s.setIn(['status', 'message'], v);
 
-const resetStatus = state => state.withMutations(
-  s => Object.keys(types).reduce(unset(false), s)
-);
+const resetStatus = state => pipe([
+  setFetchingMap(false),
+  setSuccessMap(false),
+  setFailedMap(false),
+  setMessageMap(null)
+], state);
 
-const setFetchingMap = s => s.setIn(['status', 'fetching'], true);
-const setSuccessMap = s => s.setIn(['status', 'success'], true);
 
-export const setFetching = s => pipe([resetStatus, setFetchingMap], s);
-export const setSuccess = s => pipe([resetStatus, setSuccessMap], s);
+export const setFetching = state => pipe([
+  resetStatus,
+  setFetchingMap(true),
+], state);
+
+export const setSuccess = state => pipe([
+  setFetchingMap(false),
+  setSuccessMap(true),
+], state);
+
