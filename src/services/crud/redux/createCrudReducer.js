@@ -1,7 +1,7 @@
 import { types as type } from '../constants';
 import * as mutate from '../immutable/mutators';
 
-export const statusMiddleware = reducerFn => (state, action) => {
+const createCrudReducer = reducerFn => (state, action) => {
   if (!action.crud) {
     return reducerFn(state, action);
   }
@@ -20,3 +20,5 @@ export const statusMiddleware = reducerFn => (state, action) => {
     default: throw new Error('Unspecified status type?');
   }
 };
+
+export default createCrudReducer;

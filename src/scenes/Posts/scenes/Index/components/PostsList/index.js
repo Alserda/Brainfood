@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { toJS } from 'utils/hoc';
+
+import { toJS } from 'services/hoc';
 
 import PostsListRow from '../PostsListRow';
 

@@ -1,9 +1,8 @@
 import { createReducer } from 'redux-create-reducer';
 import { Map, Record } from 'immutable';
-import { creators as crud } from 'utils/redux/crud';
 
+import crud from 'services/crud/redux/creators';
 import { Status } from 'services/crud/immutable/models';
-import { setFetching } from 'services/crud/immutable/mutators';
 
 import { Post } from './models';
 import * as mutate from './mutators';
@@ -23,7 +22,6 @@ const fetchPostsSuccessHandler = (state, action) => (
 );
 
 const handlers = {
-  [types.FETCH_COLLECTION]: setFetching,
   [types.FETCH_COLLECTION_SUCCESS]: fetchPostsSuccessHandler
 };
 

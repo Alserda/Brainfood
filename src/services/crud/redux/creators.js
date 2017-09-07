@@ -1,4 +1,4 @@
-import { types as statusType } from 'services/crud/constants';
+import { types as statusType } from '../constants';
 
 const crudTypeGroup = (type, context) => ({
   [type]: `${context}/${type}`,
@@ -49,7 +49,7 @@ const createCrudActions = types => ({
 });
 
 
-export const creators = {
+export default {
   types: createCrudTypes,
   actions: createCrudActions,
 };

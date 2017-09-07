@@ -1,4 +1,4 @@
-import pipe from 'utils/redux/pipe';
+import pipe from 'services/redux/pipe';
 
 const setFetchingMap = v => s => s.setIn(['status', 'fetching'], v);
 const setSuccessMap = v => s => s.setIn(['status', 'success'], v);
