@@ -2,7 +2,7 @@ import React from 'react';
 import { BrowserRouter, Route, Switch, Link } from 'react-router-dom';
 
 import Home from 'scenes/Home';
-import Posts from 'scenes/Posts';
+import PostsIndex from 'scenes/Posts/scenes/Index';
 
 const Router = () => (
   <BrowserRouter>
@@ -14,7 +14,7 @@ const Router = () => (
       <hr />
       <Switch>
         <Route exact path='/' component={Home} />
-        <Route path='/posts' component={Posts} />
+        <Route path='/posts' component={PostsIndex} />
       </Switch>
     </div>
   </BrowserRouter>
