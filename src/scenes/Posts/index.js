@@ -18,7 +18,7 @@ class Posts extends Component {
   // }
 
   render() {
-    console.log('Posts props: ', this.props);
+    // console.log('Posts props: ', this.props);
     const posts = this.props.posts.get('collection').entrySeq().map(
       ([key, value]) => (
         <li key={key}>{value.get('title')}</li>

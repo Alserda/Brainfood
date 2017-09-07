@@ -14,8 +14,8 @@ export function* fetchPosts() {
       data.forEach(post => map.set(post.id, new Post(post)))
     ));
 
-    yield put({ type: types.FETCH_SUCCESS, posts });
+    yield put({ type: types.FETCH_COLLECTION_SUCCESS, posts });
   } catch (err) {
-    yield put({ type: types.FETCH_FAILED });
+    yield put({ type: types.FETCH_COLLECTION_FAILED });
   }
 }
