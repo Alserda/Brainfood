@@ -2,8 +2,8 @@ import { createReducer } from 'redux-create-reducer';
 import { Map, Record } from 'immutable';
 import { creators as crud } from 'utils/redux/crud';
 
-import { Status } from 'data/status/models';
-import { setFetching } from 'data/status/mutators';
+import { Status } from 'services/crud/immutable/models';
+import { setFetching } from 'services/crud/immutable/mutators';
 
 import { Post } from './models';
 import * as mutate from './mutators';

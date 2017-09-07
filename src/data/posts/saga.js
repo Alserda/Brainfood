@@ -13,8 +13,8 @@ export function* fetchPosts() {
     const posts = new Map().withMutations(map => (
       data.forEach(post => map.set(post.id, new Post(post)))
     ));
+
     yield put(actions.fetchCollectionSuccess(posts));
-    // yield put({ type: types.FETCH_COLLECTION_SUCCESS, posts });
   } catch (err) {
     yield put({ type: types.FETCH_COLLECTION_FAILED });
   }
