@@ -9,17 +9,10 @@ import PostsList from './components/PostsList';
 
 class Posts extends Component {
   componentWillMount() {
-    this.props.actions.fetch();
+    this.props.actions.fetchCollection();
   }
 
   render() {
-    console.log('posts props: ', this.props);
-    // const posts = this.props.posts.entrySeq().map(
-    //   ([key, value]) => (
-    //     <li key={key}>{value.get('title')}</li>
-    //   )
-    // );
-
     return (
       <div>
         <PostsList posts={this.props.posts} />

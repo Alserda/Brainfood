@@ -1,3 +1,5 @@
+import { types as statusType } from 'data/status/constants';
+
 const crudTypeGroup = (type, context) => ({
   [type]: `${context}/${type}`,
   [`${type}_SUCCESS`]: `${context}/${type}_SUCCESS`,
@@ -27,8 +29,23 @@ function createCrudTypes(namespace) {
 
 
 const createCrudActions = types => ({
-  fetch: () => ({ type: types.FETCH_COLLECTION }),
-  fetchOne: (id) => ({ type: types.FETCH_ONE, id }),
+  fetchCollection: () => ({
+    type: types.FETCH_COLLECTION,
+    status: statusType.fetching,
+  }),
+
+  fetchCollectionSuccess: (payload) => ({
+    type: types.FETCH_COLLECTION_SUCCESS,
+    payload,
+    status: statusType.success,
+  }),
+
+  fetchOne: (id) => ({
+    type: types.FETCH_ONE,
+    id,
+    status: statusType.fetching,
+  }),
+
 });
 
 
