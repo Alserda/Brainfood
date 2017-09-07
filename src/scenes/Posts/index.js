@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import { actions as postsActions } from 'data/posts/duck';
+import * as selectors from 'data/posts/selectors';
 
 // const Posts = () => ([
 //   <div key='posts'>Posts</div>,
@@ -13,13 +14,9 @@ class Posts extends Component {
     this.props.actions.fetch();
   }
 
-  // componentWillReceiveProps(nextProps) {
-  //   console.log('next props: ', nextProps);
-  // }
-
   render() {
-    // console.log('Posts props: ', this.props);
-    const posts = this.props.posts.get('collection').entrySeq().map(
+    console.log('posts props: ', this.props);
+    const posts = this.props.posts.entrySeq().map(
       ([key, value]) => (
         <li key={key}>{value.get('title')}</li>
       )
@@ -38,5 +35,5 @@ const mapDispatchToProps = dispatch => ({
 });
 
 export default connect(state => ({
-  posts: state.get('posts')
+  posts: selectors.getPosts(state),
 }), mapDispatchToProps)(Posts);
