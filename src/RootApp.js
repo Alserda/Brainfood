@@ -2,7 +2,11 @@ import React from 'react';
 import { BrowserRouter, Route, Switch, Link } from 'react-router-dom';
 
 import Home from 'scenes/Home';
-import PostsIndex from 'scenes/Posts/scenes/Index';
+import {
+  PostsIndex,
+  PostsNew,
+  PostsDetail
+} from 'scenes/Posts/scenes';
 
 const Router = () => (
   <BrowserRouter>
@@ -15,6 +19,8 @@ const Router = () => (
       <Switch>
         <Route exact path='/' component={Home} />
         <Route exact path='/posts' component={PostsIndex} />
+        <Route exact path='/posts/new' component={PostsNew} />
+        <Route path='/posts/:id' component={PostsDetail} />
       </Switch>
     </div>
   </BrowserRouter>

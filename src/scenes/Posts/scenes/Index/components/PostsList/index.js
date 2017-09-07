@@ -7,7 +7,7 @@ import PostsListRow from '../PostsListRow';
 
 const PostsList = ({ posts }) => {
   const rows = Object.values(posts).map(
-    post => PostsListRow({ post })
+    post => PostsListRow({ ...post })
   );
 
   return (

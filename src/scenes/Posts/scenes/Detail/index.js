@@ -1,13 +1,13 @@
 import React, { Component } from 'react';
 
-class PostsNew extends Component {
+class PostsDetail extends Component {
   render() {
     return (
       <div>
-        postsnew
+        PostsDetail
       </div>
     );
   }
 }
 
-export default PostsNew;
+export default PostsDetail;

@@ -1,11 +1,20 @@
 import React from 'react';
+import PropTypes from 'prop-types';
+import RouteButton from 'components/RouteButton';
 
-const PostsListRow = ({ post }) => (
-  <tr key={post.id}>
-    <td>{post.id}</td>
-    <td>{post.title}</td>
-    <td>{post.body}</td>
+const PostsListRow = ({ id, title, body }) => (
+  <tr key={id}>
+    <td>{id}</td>
+    <td>{title}</td>
+    <td>{body}</td>
+    <td><RouteButton path={`/posts/${id}`}>Show</RouteButton></td>
   </tr>
 );
+
+PostsListRow.propTypes = {
+  id: PropTypes.number,
+  title: PropTypes.string,
+  body: PropTypes.body,
+};
 
 export default PostsListRow;

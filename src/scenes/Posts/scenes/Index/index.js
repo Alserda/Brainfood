@@ -11,7 +11,7 @@ import RouteButton from 'components/RouteButton';
 
 import PostsList from './components/PostsList';
 
-class Posts extends Component {
+class PostsIndex extends Component {
   static propTypes = {
     actions: PropTypes.objectOf(PropTypes.func),
     posts: ImmutablePropTypes.mapOf(
@@ -40,4 +40,4 @@ const mapDispatchToProps = dispatch => ({
 
 export default connect(state => ({
   posts: selectors.getPosts(state),
-}), mapDispatchToProps)(Posts);
+}), mapDispatchToProps)(PostsIndex);
