@@ -18,6 +18,7 @@
 - https://github.com/gajus/react-css-modules
 - https://github.com/gajus/babel-plugin-react-css-modules
 
+- https://tech.affirm.com/redux-patterns-and-anti-patterns-7d80ef3d53bc
 
 +          error = new Error(
  +            "A cross-origin error was thrown. React doesn't have access to " +

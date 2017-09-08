@@ -1,7 +1,14 @@
 import * as api from 'services/api';
 
 const endpoints = {
-  fetch: '/posts',
+  collection: '/posts',
+  detail: id => `/posts/${id}`,
 };
 
-export const fetch = () => api.fetch(endpoints.fetch);
+export const fetchCollection = () => (
+  api.fetch(endpoints.collection)
+);
+
+export const fetchOne = (id) => (
+  api.fetch(endpoints.detail(id))
+);

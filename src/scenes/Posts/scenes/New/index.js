@@ -4,7 +4,7 @@ class PostsNew extends Component {
   render() {
     return (
       <div>
-        postsnew
+        PostsNew
       </div>
     );
   }
