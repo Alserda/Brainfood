@@ -1,10 +1,11 @@
 import React, { Component } from 'react';
+import NewPostForm from './components/NewPostForm';
 
 class PostsNew extends Component {
   render() {
     return (
       <div>
-        PostsNew
+        <NewPostForm />
       </div>
     );
   }
