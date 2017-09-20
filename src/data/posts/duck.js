@@ -2,13 +2,13 @@ import { createReducer } from 'redux-create-reducer';
 import { Map, Record } from 'immutable';
 
 import { creators as crud } from 'services/crud/redux';
-import { Status } from 'services/crud/immutable/models';
+import { crudStatusRecords } from 'services/crud/immutable/models';
 
 import { Post } from './models';
 import * as mutate from './mutators';
 
 const initialState = new Record({
-  status: new Status(),
+  status: new Map(crudStatusRecords),
   collection: new Map(),
   detail: new Post(),
 });

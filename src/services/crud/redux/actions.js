@@ -1,39 +1,55 @@
-import { types as statusType } from '../constants';
+import {
+  crudTypesCamelCased as crudType,
+  statusTypes as statusType,
+} from '../constants';
 
-export const createCrudActions = types => ({
-  /* Collection */
-  fetchCollection: () => ({
-    type: types.FETCH_COLLECTION,
-    crud: statusType.fetching,
-  }),
-  fetchCollectionSuccess: (payload) => ({
-    type: types.FETCH_COLLECTION_SUCCESS,
-    payload,
-    crud: statusType.success,
-  }),
-  fetchCollectionFailed: (error) => ({
-    type: types.FETCH_COLLECTION_FAILED,
-    error,
-    crud: statusType.failed,
-  }),
+export const createCrudActions = types => {
+  console.log('create crud actions:', types);
 
-  /* Fetching one record */
-  fetchOne: (id) => ({
-    type: types.FETCH_ONE,
-    id,
-    crud: statusType.fetching,
-  }),
+  return ({
+    /* Collection */
+    fetchCollection: () => ({
+      type: types.FETCH_COLLECTION,
+      crud: {
+        status: statusType.fetching,
+        type: crudType.fetchCollection,
+      },
+    }),
+    fetchCollectionSuccess: (payload) => ({
+      type: types.FETCH_COLLECTION_SUCCESS,
+      payload,
+      crud: {
+        status: statusType.success,
+        type: crudType.fetchCollection,
+      }
+    }),
+    fetchCollectionFailed: (error) => ({
+      type: types.FETCH_COLLECTION_FAILED,
+      error,
+      crud: {
+        status: statusType.failed,
+        type: crudType.fetchCollection,
+      }
+    }),
 
-  fetchOneSuccess: (payload) => ({
-    type: types.FETCH_ONE_SUCCESS,
-    payload,
-    crud: statusType.success,
-  }),
+    /* Fetching one record */
+    fetchOne: (id) => ({
+      type: types.FETCH_ONE,
+      id,
+      crud: statusType.fetching,
+    }),
 
-  fetchOneFailed: (error) => ({
-    type: types.FETCH_ONE_FAILED,
-    error,
-    crud: statusType.failed,
-  }),
-});
+    fetchOneSuccess: (payload) => ({
+      type: types.FETCH_ONE_SUCCESS,
+      payload,
+      crud: statusType.success,
+    }),
+
+    fetchOneFailed: (error) => ({
+      type: types.FETCH_ONE_FAILED,
+      error,
+      crud: statusType.failed,
+    }),
+  });
+}
 
