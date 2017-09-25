@@ -1,36 +1,33 @@
-import { statusTypes as type } from '../constants';
+// import { statusTypes as type } from '../constants';
 import * as mutate from '../immutable/mutators';
 
-const pindakaas = (state, action) => {
-  console.log('pindakaas middleware');
-  // console.log('reducer: ', reducer);
-  console.log('state: ', state);
-  console.log('action: ', action);
-}
+const createCrudReducer = (reducerFn, namespace) => (state, action) => {
+  const actionNamespace = action.type.split('/')[0];
 
-// const pindakaas = ding => {
-//   console.log('ding: ', ding);
-// }
-
-const createCrudReducer = reducerFn => (state, action) => {
-  if (!action.crud) {
+  if (!action.crud || (actionNamespace !== namespace)) {
     return reducerFn(state, action);
   }
 
-  console.log('Create crud reducer action: ', action);
 
-  switch (action.crud.status) {
-    case type.fetching:
-      return reducerFn(pindakaas(state, action), action);
+  // console.log('Action: ', action);
+  // console.log('Namespace: ', namespace);
+  // console.log('Action namespace: ', actionNamespace);
+  // console.log('------------------');
 
-    case type.success:
-      return reducerFn(mutate.setSuccess(state), action);
+  return reducerFn(mutate.updateStatus(state, action.crud), action);
 
-    case type.failed:
-      return reducerFn(mutate.setFailed(state, action.error), action);
+  // switch (action.crud.status) {
+  //   case type.fetching:
+  //     return reducerFn(mutate.setFetching(state), action);
 
-    default: throw new Error('Unspecified status type?');
-  }
+  //   case type.success:
+  //     return reducerFn(mutate.setSuccess(state), action);
+
+  //   case type.failed:
+  //     return reducerFn(mutate.setFailed(state, action.error), action);
+
+  //   default: throw new Error('Unspecified status type?');
+  // }
 };
 
 export default createCrudReducer;

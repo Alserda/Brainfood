@@ -5,7 +5,7 @@ import posts from './posts/duck';
 import users from './users/duck';
 
 export default combineReducers({
-  posts: createCrudReducer(posts),
-  users: createCrudReducer(users),
+  posts: createCrudReducer(posts, 'POSTS'),
+  users: createCrudReducer(users, 'USERS'),
   form: formReducer,
 });
